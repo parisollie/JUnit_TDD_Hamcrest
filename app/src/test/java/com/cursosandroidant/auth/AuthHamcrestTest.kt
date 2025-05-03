@@ -5,24 +5,23 @@ import org.hamcrest.Matchers.*
 import org.junit.Assert
 import org.junit.Test
 
-/****
- * Project: Auth
- * From: com.cursosandroidant.auth
- * Created by Alain Nicolás Tello on 15/12/21 at 11:19
- * All rights reserved 2021.
- *
- * All my Udemy Courses:
- * https://www.udemy.com/user/alain-nicolas-tello/
- * Web: www.alainnicolastello.com
- ***/
+//Paso 3.1
 class AuthHamcrestTest {
-    //given-when-then
+    //Paso 3.2 given-when-then, deben de tener esta estructura
+    /**
+     * given -> dado que
+     * when -> cuando ,aciones o estados que se van a probar
+     * then-> entonces ,resultado esperado
+     */
     @Test
     fun loginUser_correctData_returnsSuccessEvent(){
         val result = userAuthenticationTDD("ant@gmail.com", "1234")
+        //Paso 3.4, le ponemos asserThat y `is`
+        //un valor esperado es igual al valor actual de un proceso anterior
         assertThat(AuthEvent.USER_EXIST, `is`(result))
     }
 
+    //V-48,paso 3.5 migramos todo a Hamcrest
     @Test
     fun loginUser_wrongData_returnsFailEvent(){
         val result = userAuthenticationTDD("nt@gmail.com", "1234")
@@ -96,18 +95,23 @@ class AuthHamcrestTest {
         assertThat(AuthEvent.LENGTH_PASSWORD, `is`(result))
     }
 
+    //V-49,paso 3.7, otras validaciones con Hamcrest
     @Test
+    //La letra i esta contenido en la palabra Maria
     fun checkNames_differentUsers_match(){
         assertThat("Maria", both(containsString("a")).and(containsString("i")))
     }
 
+    //Paso 3.8
     @Test
     fun checkData_emailPassword_noMatch(){
         val email = "ant@gmail.com"
         val password = "1234"
+        //Afirmamos que el correo no es igual al password
         assertThat(email, not(`is`(password)))
     }
 
+    //V-49,Paso 3.9, checando con arreglos
     @Test
     fun checkExist_newEmail_returnsString(){
         val oldEmail = "ant@gmail.com"
@@ -123,6 +127,7 @@ class AuthHamcrestTest {
         val newEmail = "ant@cursosandroid.com"
         val emails = arrayListOf(oldEmail, newEmail, nextEmail)
         val newEmails = arrayListOf(newEmail, nextEmail)
+        //Verificar que tengan el mismo dpminio
         assertThat(newEmails, everyItem(endsWith("cursosandroid.com")))
     }
 }
