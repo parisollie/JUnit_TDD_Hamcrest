@@ -4,19 +4,12 @@ import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
-/****
- * Project: Auth
- * From: com.cursosandroidant.auth
- * Created by Alain Nicolás Tello on 14/12/21 at 13:10
- * All rights reserved 2021.
- *
- * All my Udemy Courses:
- * https://www.udemy.com/user/alain-nicolas-tello/
- * Web: www.alainnicolastello.com
- ***/
+
+//V-34, paso 1.0, TEST PARA CORREO
 class AuthTest {
     @Test
     fun login_complete_returnsTrue(){
+        //Ponemos el usuario y contraseña que queremos probar
         val isAtuhenticated = userAuthentication("ant@gmail.com", "1234")
         assertTrue(isAtuhenticated)
     }
@@ -30,7 +23,7 @@ class AuthTest {
         val isAtuhenticated = userAuthentication("", "1234")
         assertFalse(isAtuhenticated)
     }
-    /*  - TDD -
+    /*  - Paso 1.2,TDD -
     @Test
     fun login_nullEmail_returnsFalse(){
         val isAtuhenticated = userAuthenticationTDD(null, "1234")

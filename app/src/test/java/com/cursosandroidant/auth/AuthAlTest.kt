@@ -2,20 +2,11 @@ package com.cursosandroidant.auth
 
 import org.junit.Assert
 import org.junit.Before
-import org.junit.Ignore
 import org.junit.Test
 
-/****
- * Project: Auth
- * From: com.cursosandroidant.auth
- * Created by Alain Nicolás Tello on 15/12/21 at 10:51
- * All rights reserved 2021.
- *
- * All my Udemy Courses:
- * https://www.udemy.com/user/alain-nicolas-tello/
- * Web: www.alainnicolastello.com
- ***/
+//V-45 Paso 2.11 PRUEBAS INVERSAS
 class AuthAlTest {
+    //Definimos las variables globales
     private var email: String? = null
     private var password: String? = null
 
